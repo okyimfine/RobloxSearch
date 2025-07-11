@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: roblox-user-search
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn main:app
+    envVars:
+      - key: PORT
+        value: "10000"  # Render akan override PORT sebenarnya tapi ini fallback
